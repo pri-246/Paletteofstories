@@ -1,0 +1,477 @@
+/* =========================================================
+   PRIYANKA ART SITE — V1 LAUNCH
+   Boutique gallery site with easy-to-edit HTML comments.
+
+   Palette:
+   Gallery White  #FCFAF7
+   Warm Linen     #F3ECE2
+   Charcoal       #22201E
+   Walnut         #6E5A4D
+   Antique Gold   #B28A49
+   Deep Emerald   #355A49
+   Ember          #BF6338
+========================================================= */
+
+:root {
+  --gallery-white: #FCFAF7;
+  --warm-linen: #F3ECE2;
+  --charcoal: #22201E;
+  --walnut: #6E5A4D;
+  --antique-gold: #B28A49;
+  --deep-emerald: #355A49;
+  --ember: #BF6338;
+  --line: rgba(34, 32, 30, 0.12);
+  --shadow: 0 24px 70px rgba(34, 32, 30, 0.11);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  color: var(--charcoal);
+  background:
+    radial-gradient(circle at top left, rgba(178, 138, 73, 0.12), transparent 34rem),
+    linear-gradient(180deg, var(--gallery-white), var(--warm-linen));
+  font-family: "Inter", system-ui, sans-serif;
+  line-height: 1.65;
+}
+
+/* Subtle plaster / limewash feeling */
+.textured-section {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 12% 8%, rgba(178, 138, 73, 0.18), transparent 28rem),
+    radial-gradient(circle at 82% 18%, rgba(53, 90, 73, 0.055), transparent 24rem),
+    linear-gradient(135deg, rgba(255,255,255,0.34), rgba(243,236,226,0.7)),
+    var(--gallery-white);
+}
+
+.textured-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.28;
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(34,32,30,0.035) 0 1px, transparent 1px),
+    radial-gradient(circle at 80% 40%, rgba(178,138,73,0.04) 0 1px, transparent 1px);
+  background-size: 28px 28px, 42px 42px;
+  mix-blend-mode: multiply;
+}
+
+/* Faint signature brushstroke */
+.hero-mark {
+  position: absolute;
+  width: min(520px, 60vw);
+  height: 140px;
+  left: clamp(20px, 7vw, 110px);
+  top: clamp(110px, 18vh, 190px);
+  opacity: 0.055;
+  transform: rotate(-8deg);
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--antique-gold), var(--ember), transparent);
+  filter: blur(2px);
+}
+
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px clamp(22px, 5vw, 72px);
+  background: rgba(252, 250, 247, 0.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.62rem;
+  color: var(--charcoal);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+nav { display: flex; gap: 26px; }
+
+nav a {
+  color: var(--charcoal);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.16em;
+}
+
+nav a:hover { color: var(--deep-emerald); }
+
+.hero {
+  min-height: 82vh;
+  display: grid;
+  grid-template-columns: 1.12fr 0.88fr;
+  gap: clamp(42px, 7vw, 100px);
+  align-items: center;
+  padding: clamp(66px, 8vw, 112px) clamp(24px, 6vw, 96px);
+}
+
+.eyebrow {
+  color: var(--antique-gold);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.02;
+}
+
+h1 {
+  max-width: 760px;
+  margin: 14px 0 24px;
+  font-size: clamp(3.1rem, 6vw, 5.9rem);
+}
+
+h2 { font-size: clamp(2.15rem, 4vw, 4.1rem); }
+h3 { font-size: 1.45rem; }
+
+p { color: var(--walnut); }
+
+.hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-text p {
+  max-width: 620px;
+  font-size: 1.02rem;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 26px;
+  padding: 13px 21px;
+  border-radius: 999px;
+  background: var(--charcoal);
+  color: var(--gallery-white);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: 0.25s ease;
+  border: 0;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--deep-emerald);
+  transform: translateY(-2px);
+}
+
+.featured-panel {
+  position: relative;
+  z-index: 1;
+  justify-self: center;
+  max-width: 380px;
+  padding: 18px;
+  background: rgba(243, 236, 226, 0.72);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.featured-panel a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.featured-panel img {
+  width: 100%;
+  display: block;
+  background: var(--warm-linen);
+}
+
+.featured-panel h2 {
+  font-size: 1.95rem;
+  margin-top: 16px;
+}
+
+.featured-panel span {
+  display: inline-block;
+  color: var(--antique-gold);
+  margin-top: 10px;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+}
+
+.collection {
+  padding: clamp(66px, 8vw, 108px) clamp(24px, 6vw, 96px);
+  border-top: 1px solid var(--line);
+}
+
+.collection.warm {
+  background:
+    linear-gradient(135deg, rgba(53, 90, 73, 0.07), transparent 50%),
+    rgba(243, 236, 226, 0.60);
+}
+
+.collection-heading {
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 18px;
+  align-items: start;
+  margin-bottom: 38px;
+}
+
+.collection-heading span {
+  color: var(--antique-gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2.25rem;
+  line-height: 1;
+}
+
+.collection-heading p { margin-top: 8px; }
+
+.collection-heading::after {
+  content: "";
+  grid-column: 2;
+  width: 72px;
+  height: 1px;
+  background: var(--antique-gold);
+  margin-top: 14px;
+}
+
+.art-grid {
+  display: grid;
+  gap: clamp(28px, 3vw, 46px);
+  justify-content: center;
+}
+
+.large-grid {
+  grid-template-columns: repeat(2, minmax(300px, 420px));
+}
+
+.portrait-grid {
+  grid-template-columns: repeat(3, minmax(220px, 270px));
+}
+
+.art-card a {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.art-image {
+  width: 100%;
+  padding: 14px;
+  background: var(--warm-linen);
+  border: 1px solid var(--line);
+  transition: 0.25s ease;
+}
+
+.art-image img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: contain;
+  display: block;
+  background: var(--warm-linen);
+}
+
+.art-copy { padding-top: 15px; }
+
+.art-copy p { margin: 4px 0 8px; }
+
+.art-copy span {
+  color: var(--antique-gold);
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+}
+
+.art-card:hover .art-image {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.art-card:hover h3 { color: var(--deep-emerald); }
+
+.closing-note {
+  padding: clamp(66px, 8vw, 108px) clamp(24px, 6vw, 96px);
+  text-align: center;
+  background: var(--charcoal);
+}
+
+.closing-note p {
+  color: var(--gallery-white);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: clamp(1.8rem, 3.4vw, 3.4rem);
+  margin: 0;
+}
+
+.closing-links {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+}
+
+.closing-links a {
+  color: var(--antique-gold);
+  text-decoration: none;
+}
+
+.page {
+  min-height: 100vh;
+  padding: clamp(70px, 8vw, 118px) clamp(24px, 6vw, 96px);
+}
+
+.page-narrow {
+  max-width: 900px;
+  margin: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.artist-intro {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 40px;
+  margin-top: 28px;
+}
+
+.artist-photo-wrap {
+  margin: 0;
+  text-align: center;
+}
+
+.artist-photo-wrap img,
+.artist-photo-wrap.missing-photo {
+  width: 108px;
+  height: 108px;
+  display: inline-grid;
+  place-items: center;
+  object-fit: cover;
+  border-radius: 999px;
+  background: var(--warm-linen);
+  border: 1px solid var(--line);
+}
+
+.artist-photo-wrap.missing-photo::before {
+  content: "PP";
+  color: var(--antique-gold);
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 2rem;
+}
+
+.artist-photo-wrap figcaption {
+  color: var(--walnut);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.form {
+  display: grid;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 15px 16px;
+  border: 1px solid var(--line);
+  background: rgba(252, 250, 247, 0.72);
+  font: inherit;
+  color: var(--charcoal);
+}
+
+textarea { min-height: 160px; }
+
+.helper-text {
+  font-size: 0.9rem;
+  margin-top: 18px;
+}
+
+.artwork-layout {
+  display: grid;
+  grid-template-columns: minmax(280px, 460px) minmax(280px, 1fr);
+  gap: clamp(36px, 6vw, 86px);
+  align-items: start;
+}
+
+.detail-image {
+  box-shadow: var(--shadow);
+}
+
+.artwork-meta {
+  margin: 20px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.artwork-meta li {
+  border-top: 1px solid var(--line);
+  padding: 12px 0;
+  color: var(--walnut);
+}
+
+.artwork-nav {
+  margin-top: 34px;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+footer {
+  padding: 26px clamp(24px, 6vw, 96px);
+  color: var(--walnut);
+  border-top: 1px solid var(--line);
+  font-size: 0.9rem;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 950px) {
+  nav { display: none; }
+
+  .hero,
+  .artist-intro,
+  .artwork-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .featured-panel {
+    justify-self: start;
+    max-width: 340px;
+  }
+
+  .collection-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .collection-heading::after {
+    grid-column: 1;
+  }
+
+  .large-grid,
+  .portrait-grid {
+    grid-template-columns: minmax(230px, 330px);
+  }
+
+  h1 {
+    font-size: clamp(2.8rem, 12vw, 4.4rem);
+  }
+}
